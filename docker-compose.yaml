@@ -5,7 +5,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - mongo-data:/data/db
+      - ./data:/data/db
   nginx:
     image: nginx:latest
     ports:
@@ -28,7 +28,7 @@ services:
     depends_on:
       - mongodb
   get:
-    image: sarpsahinalp/exercise-3-get:latest
+    image: sarpsahinalp/exercise-3:latest
     container_name: get
     ports:
       - "3031:3030"
@@ -37,7 +37,7 @@ services:
     depends_on:
       - mongodb
   delete:
-    image: sarpsahinalp/exercise-3-delete:latest
+    image: sarpsahinalp/exercise-3:latest
     container_name: delete
     ports:
       - "3032:3030"
@@ -46,7 +46,7 @@ services:
     depends_on:
       - mongodb
   post:
-    image: sarpsahinalp/exercise-3-post:latest
+    image: sarpsahinalp/exercise-3:latest
     container_name: post
     ports:
       - "3033:3030"
@@ -55,7 +55,7 @@ services:
     depends_on:
       - mongodb
   put:
-    image: sarpsahinalp/exercise-3-put:latest
+    image: sarpsahinalp/exercise-3:latest
     container_name: put
     ports:
       - "3034:3030"
@@ -63,7 +63,3 @@ services:
       - DATABASE_URI=mongodb://mongodb:27017
     depends_on:
       - mongodb
-
-
-volumes:
-  mongo-data:
